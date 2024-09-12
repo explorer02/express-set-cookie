@@ -3,10 +3,12 @@
 const express = require("express");
 const serverless = require("serverless-http");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
 const router = express.Router();
 app.use(cookieParser());
+app.use(cors());
 
 router.get("/", (req, res) => {
   res.send("App is running..");
