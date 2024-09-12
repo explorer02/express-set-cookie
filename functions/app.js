@@ -16,7 +16,17 @@ router.get("/", (req, res) => {
     secure: true, // Cookie will only be sent over HTTPS
     maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
   });
-  res.send("App is running..");
+
+  res.cookie("test_cookie", "test_value", {
+    domain: ".sprinklr.com", // Allow cookie for subdomains
+    path: "/",
+    sameSite: "None", // Cross-origin cookies
+    secure: true, // Cookies only sent over HTTPS
+    httpOnly: true, // Cookies not accessible via JavaScript
+    expires: new Date(Date.now() + 3600000), // Cookie expiration
+  });
+
+  res.json({ data: "App is running.." });
 });
 
 app.post("/", (req, res) => {
@@ -25,6 +35,15 @@ app.post("/", (req, res) => {
     httpOnly: true, // Makes the cookie inaccessible to JavaScript
     secure: true, // Cookie will only be sent over HTTPS
     maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+  });
+
+  res.cookie("test_cookie", "test_value", {
+    domain: ".sprinklr.com", // Allow cookie for subdomains
+    path: "/",
+    sameSite: "None", // Cross-origin cookies
+    secure: true, // Cookies only sent over HTTPS
+    httpOnly: true, // Cookies not accessible via JavaScript
+    expires: new Date(Date.now() + 3600000), // Cookie expiration
   });
 
   // Return dummy JSON
