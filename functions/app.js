@@ -43,7 +43,15 @@ app.post("/", (req, res) => {
     sameSite: "None", // Cross-origin cookies
     secure: true, // Cookies only sent over HTTPS
     httpOnly: true, // Cookies not accessible via JavaScript
-    expires: new Date(Date.now() + 3600000), // Cookie expiration
+  });
+
+  res.cookie("test_cookie_max", "test_value", {
+    domain: ".sprinklr.com", // Allow cookie for subdomains
+    path: "/",
+    sameSite: "None", // Cross-origin cookies
+    secure: true, // Cookies only sent over HTTPS
+    httpOnly: true, // Cookies not accessible via JavaScript
+    maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
   });
 
   // Return dummy JSON
