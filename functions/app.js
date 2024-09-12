@@ -11,13 +11,13 @@ app.use(cookieParser());
 app.use(cors());
 
 router.get("/", (req, res) => {
-  res.cookie("cookie1", "cookieValue", {
+  res.cookie("test__1", "cookieValue", {
     httpOnly: true, // Makes the cookie inaccessible to JavaScript
     secure: true, // Cookie will only be sent over HTTPS
     maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
   });
 
-  res.cookie("cookie2", "test_value", {
+  res.cookie("test__2", "test_value", {
     domain: ".sprinklr.com", // Allow cookie for subdomains
     path: "/",
     sameSite: "none", // Cross-origin cookies
@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
     expires: new Date(Date.now() + 3600000), // Cookie expiration
   });
 
-  res.cookie("cookie3", "test_value", {
+  res.cookie("test__3", "test_value", {
     domain: ".sprinklr.com", // Allow cookie for subdomains
     path: "/",
     sameSite: "none", // Cross-origin cookies
@@ -36,7 +36,7 @@ router.get("/", (req, res) => {
     expires: new Date("20 sep 2024"),
   });
 
-  res.cookie("cookie4", "test_value", {
+  res.cookie("test__4", "test_value", {
     domain: "*", // Allow cookie for subdomains
     path: "/",
     sameSite: "none", // Cross-origin cookies
@@ -46,7 +46,7 @@ router.get("/", (req, res) => {
     expires: new Date("20 sep 2024"),
   });
 
-  res.cookie("cookie5", "test_value", {
+  res.cookie("test__5", "test_value", {
     path: "/",
     sameSite: "lax", // Cross-origin cookies
     secure: true, // Cookies only sent over HTTPS
@@ -55,13 +55,13 @@ router.get("/", (req, res) => {
     expires: new Date("20 sep 2024"),
   });
 
-  res.cookie("cookie6", "test_value", {
+  res.cookie("test__6", "test_value", {
     sameSite: "lax", // Cross-origin cookies
     maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
     expires: new Date("20 sep 2024"),
   });
 
-  res.cookie("cookie7", "test_value", {
+  res.cookie("test__7", "test_value", {
     maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
     expires: new Date("20 sep 2024"),
   });
