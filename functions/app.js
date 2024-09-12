@@ -11,7 +11,7 @@ app.use(cookieParser());
 app.use(cors());
 
 router.get("/", (req, res) => {
-  res.cookie("test__1", "cookieValue", {
+  res.cookie("myCookie", "cookieValue", {
     httpOnly: true, // Makes the cookie inaccessible to JavaScript
     secure: true, // Cookie will only be sent over HTTPS
     maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
