@@ -55,6 +55,17 @@ router.get("/", (req, res) => {
     expires: new Date("20 sep 2024"),
   });
 
+  res.cookie("cookie6", "test_value", {
+    sameSite: "lax", // Cross-origin cookies
+    maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+    expires: new Date("20 sep 2024"),
+  });
+
+  res.cookie("cookie7", "test_value", {
+    maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+    expires: new Date("20 sep 2024"),
+  });
+
   res.json({ data: "App is running.." });
 });
 
