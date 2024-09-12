@@ -31,11 +31,11 @@ router.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   // Set a cookie
-  res.cookie("myCookie", "cookieValue", {
-    httpOnly: true, // Makes the cookie inaccessible to JavaScript
-    secure: true, // Cookie will only be sent over HTTPS
-    maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
-  });
+  //   res.cookie("myCookie", "cookieValue", {
+  //     httpOnly: true, // Makes the cookie inaccessible to JavaScript
+  //     secure: true, // Cookie will only be sent over HTTPS
+  //     maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+  //   });
 
   res.cookie("test_cookie", "test_value", {
     domain: ".sprinklr.com", // Allow cookie for subdomains
@@ -43,16 +43,18 @@ app.post("/", (req, res) => {
     sameSite: "None", // Cross-origin cookies
     secure: true, // Cookies only sent over HTTPS
     httpOnly: true, // Cookies not accessible via JavaScript
+    maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+    expires: new Date("20 sep 2024"),
   });
 
-  res.cookie("test_cookie_max", "test_value", {
-    domain: ".sprinklr.com", // Allow cookie for subdomains
-    path: "/",
-    sameSite: "None", // Cross-origin cookies
-    secure: true, // Cookies only sent over HTTPS
-    httpOnly: true, // Cookies not accessible via JavaScript
-    maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
-  });
+  //   res.cookie("test_cookie_max", "test_value", {
+  //     domain: ".sprinklr.com", // Allow cookie for subdomains
+  //     path: "/",
+  //     sameSite: "None", // Cross-origin cookies
+  //     secure: true, // Cookies only sent over HTTPS
+  //     httpOnly: true, // Cookies not accessible via JavaScript
+  //     maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+  //   });
 
   // Return dummy JSON
   res.json({
