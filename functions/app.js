@@ -74,7 +74,7 @@ router.get("/", (req, res) => {
 
   res.cookie("test__9", "test_value", {
     path: "*",
-    domain: "*",
+    domain: "localhost",
     maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
     expires: new Date("20 sep 2024"),
   });
@@ -137,5 +137,10 @@ app.get("/api/data", (req, res) => {
   });
 });
 
+// app.use("/", router);
 app.use("/.netlify/functions/app", router);
 module.exports.handler = serverless(app);
+
+// app.listen(1123, () => {
+//   console.log(`Server is running on http://localhost:${1123}`);
+// });
