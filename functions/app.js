@@ -79,6 +79,16 @@ router.get("/", (req, res) => {
     expires: new Date("20 sep 2024"),
   });
 
+  res.cookie("test__10", "test_value", {
+    path: "*",
+    domain: "localhost",
+    maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+    expires: new Date("20 sep 2024"),
+    sameSite: "none",
+    httpOnly: true,
+    secure: true,
+  });
+
   res.json({ data: "App is running.." });
 });
 
