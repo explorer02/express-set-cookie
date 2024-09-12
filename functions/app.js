@@ -35,6 +35,15 @@ router.get("/", (req, res) => {
     maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
     expires: new Date("20 sep 2024"),
   });
+  res.cookie("test__31", "test_value", {
+    domain: "sprinklr.com", // Allow cookie for subdomains
+    path: "/",
+    sameSite: "none", // Cross-origin cookies
+    secure: true, // Cookies only sent over HTTPS
+    httpOnly: true, // Cookies not accessible via JavaScript
+    maxAge: 10 * 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
+    expires: new Date("20 sep 2024"),
+  });
 
   res.cookie("test__4", "test_value", {
     domain: "*", // Allow cookie for subdomains
